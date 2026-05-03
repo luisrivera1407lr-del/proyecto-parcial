@@ -2,28 +2,35 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Run SQL on BDTAREA') {
             steps {
-                echo 'Compilando...'
+                echo "Ejecutando query en la base BDTAREA..."
+                // Ejecutar consulta inline
                 bat '''
+                sqlcmd -S luis-rivera -U sa -P Luis_1407 -d BDTAREA -Q "SELECT TOP 10 * FROM dbo.MiTabla;"
                 '''
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Probando...'
+                // O ejecutar un archivo .sql versionado en Git
                 bat '''
-                '''
-            }
-        }
-        stage('Deliver') {
-            steps {
-                echo 'Desplegando...'
-                bat '''
+                sqlcmd -S luis-rovera -U sa -P Luis_1407 -d BDTAREA -i scripts/query.sql
                 '''
             }
         }
     }
+
+    post {
+        success {
+            mail to: 'destinatario@gmail.com',
+                 subject: "Pipeline exitoso",
+                 body: "La consulta SQL en BDTAREA se ejecutó correctamente."
+        }
+        failure {
+            mail to: 'destinatario@gmail.com',
+                 subject: "Pipeline fallido",
+                 body: "Hubo un error al ejecutar la consulta SQL en BDTAREA."
+        }
+    }
+}
+
 
     post {
         success {
