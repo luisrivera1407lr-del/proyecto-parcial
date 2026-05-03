@@ -7,7 +7,7 @@ pipeline {
                 echo "Ejecutando query en la base BDTAREA..."
                 // Ejecutar consulta inline
                 bat '''
-                sqlcmd -S luis-rivera -U sa -P Luis_1407 -d BDTAREA -C -Q "SELECT TOP 10 * FROM dbo.MiTabla;"
+                sqlcmd -S luis-rivera -U sa -P Luis_1407 -d BDTAREA -C -Q "SELECT TOP 10 * FROM dbo.Cliente;"
                 '''
                 // O ejecutar un archivo .sql versionado en Git
                 bat '''
