@@ -17,12 +17,12 @@
         success {
             mail to: 'yeseniaroapaz@gmail.com, jcgalvezvega@gmail.com',
                  subject: "Pipeline exitoso",
-                 body: "La consulta SQL en BDTAREA se ejecutó correctamente."
+                 body: "La consulta SQL se ejecutó correctamente."
         }
         failure {
             mail to: 'yeseniaroapaz@gmail.com, jcgalvezvega@gmail.com',
                  subject: "Pipeline fallido",
-                 body: "Hubo un error al ejecutar la consulta SQL en BDTAREA."
+                 body: "Hubo un error al ejecutar la consulta SQL."
         }
     }
 }
