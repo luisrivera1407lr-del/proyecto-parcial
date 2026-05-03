@@ -1,17 +1,17 @@
-pipeline {
+ pipeline {
     agent any
 
     stages {
-        stage('Run SQL on BDTAREA') {
+        stage('Run SQL on VENTAS2017') {
             steps {
-                echo "Ejecutando query en la base BDTAREA..."
-                // Ejecutar consulta inline
+                echo "Ejecutando query en la base VENTAS2017..."
+                // Ejecutar consulta inline: TOP 3 por mayor importe
                 bat '''
-                sqlcmd -S luis-rivera -U sa -P Luis_1407 -d BDTAREA -C -Q "SELECT TOP 10 * FROM dbo.Cliente;"
+                sqlcmd -S localhost -U sa -P Luis_1407 -d VENTAS2017 -C -Q "SELECT TOP 3 NUM_BOLETA, ID_PRODUCTO, CANTIDAD, IMPORTE FROM DETALLEBOLETA ORDER BY IMPORTE DESC;"
                 '''
                 // O ejecutar un archivo .sql versionado en Git
                 bat '''
-                sqlcmd -S luis-rivera -U sa -P Luis_1407 -d BDTAREA -C -i scripts/query.sql
+                sqlcmd -S localhost -U sa -P Luis_1407 -d VENTAS2017 -C -i scripts/query.sql
                 '''
             }
         }
