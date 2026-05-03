@@ -27,12 +27,12 @@ pipeline {
 
     post {
         success {
-            mail to: 'xxxxxxxx@gmail.com',
+            mail to: 'yeseniaroapaz@gmail.com',
                  subject: 'Proyecto Parcial Exitoso',
                  body: 'El pipeline se ejecutó correctamente.'
         }
         failure {
-            mail to: 'xxxxxxxx@gmail.com',
+            mail to: 'yeseniaroapaz@gmail.com',
                  subject: 'Error en Proyecto Parcial',
                  body: 'El pipeline falló. Revisar Jenkins.'
         }
