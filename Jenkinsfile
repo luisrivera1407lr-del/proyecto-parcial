@@ -4,14 +4,10 @@
     stages {
         stage('Run SQL on VENTAS2017') {
             steps {
-                echo "Ejecutando query en la base VENTAS2017..."
-                // Ejecutar consulta inline: TOP 3 por mayor importe
-                bat '''
-                sqlcmd -S localhost -U sa -P Luis_1407 -d VENTAS2017 -C -Q "SELECT TOP 3 NUM_BOLETA, ID_PRODUCTO, CANTIDAD, IMPORTE FROM DETALLEBOLETA ORDER BY IMPORTE DESC;"
-                '''
+                echo "Ejecutando query en la base Sistema_incidencias..."
                 // O ejecutar un archivo .sql versionado en Git
                 bat '''
-                sqlcmd -S localhost -U sa -P Luis_1407 -d VENTAS2017 -C -i scripts/query.sql
+                sqlcmd -S localhost -U sa -P Luis_1407 -d Sistema_Incidencias -C -i scripts/query.sql
                 '''
             }
         }
