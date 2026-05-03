@@ -30,18 +30,5 @@ pipeline {
         }
     }
 }
-
-
-    post {
-        success {
-            mail to: 'yeseniaroapaz@gmail.com',
-                 subject: 'Proyecto Parcial Exitoso',
-                 body: 'El pipeline se ejecutó correctamente.'
-        }
-        failure {
-            mail to: 'yeseniaroapaz@gmail.com',
-                 subject: 'Error en Proyecto Parcial',
-                 body: 'El pipeline falló. Revisar Jenkins.'
-        }
     }
 }
