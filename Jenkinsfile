@@ -19,7 +19,7 @@ pipeline {
         stage('Deliver') {
             steps {
                 echo 'Desplegando...'
-                bat'''
+                bat '''
                 '''
             }
         }
