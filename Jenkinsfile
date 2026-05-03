@@ -11,7 +11,7 @@ pipeline {
                 '''
                 // O ejecutar un archivo .sql versionado en Git
                 bat '''
-                sqlcmd -S luis-rovera -U sa -P Luis_1407 -d BDTAREA -i scripts/query.sql
+                sqlcmd -S luis-rivera -U sa -P Luis_1407 -d BDTAREA -i scripts/query.sql
                 '''
             }
         }
