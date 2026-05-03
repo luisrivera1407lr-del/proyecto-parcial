@@ -6,18 +6,21 @@ pipeline {
             steps {
                 echo 'Compilando...'
                 bat '''
+                '''
             }
         }
         stage('Test') {
             steps {
                 echo 'Probando...'
                 bat '''
+                '''
             }
         }
         stage('Deliver') {
             steps {
                 echo 'Desplegando...'
                 bat'''
+                '''
             }
         }
     }
