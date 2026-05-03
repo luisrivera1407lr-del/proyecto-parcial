@@ -5,29 +5,32 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Compilando...'
+                bat '''
             }
         }
         stage('Test') {
             steps {
                 echo 'Probando...'
+                bat '''
             }
         }
-        stage('Deploy') {
+        stage('Deliver') {
             steps {
                 echo 'Desplegando...'
+                bat'''
             }
         }
     }
 
     post {
         success {
-            mail to: 'tu_correo@gmail.com',
-                 subject: 'Pipeline Exitoso',
+            mail to: 'xxxxxxxx@gmail.com',
+                 subject: 'Proyecto Parcial Exitoso',
                  body: 'El pipeline se ejecutó correctamente.'
         }
         failure {
-            mail to: 'tu_correo@gmail.com',
-                 subject: 'Error en Pipeline',
+            mail to: 'xxxxxxxx@gmail.com',
+                 subject: 'Error en Proyecto Parcial',
                  body: 'El pipeline falló. Revisar Jenkins.'
         }
     }
